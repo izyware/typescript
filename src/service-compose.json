@@ -1,0 +1,37 @@
+{
+  "verbose" : {
+    "forceUpToLevel": 2,
+    "extraInfoInLogs": true,
+    "useANSIColors": true,
+    "filter": {
+      "services": ["session"],
+      "_invokeStrings": ["session?userInterface"],
+      "_devices": ["ethernet1"],
+      "_actions": ["setup"]
+    },
+    "fieldsSchema": {
+      "timestamp": true,
+      "service": { "len": 10, "prefix": "[", "postfix": "]" }, 
+      "context": { "len": 3, "prefix": "{", "postfix": "}" }, 
+      "invokeString": { "len": -30, "prefix": "(", "postfix": ")" }, 
+      "action": { "len": 10 }, 
+      "device": { "len": 0 }, 
+      "outcome": true,
+      "misc": true
+    }
+  },
+  "__chainProcessorConfig": {
+    "runpkg": {
+      "verbose": false
+    }
+  },
+  "user": {
+    "id": "1"
+  },
+  "sessionSrv": {
+    "pkgModuleString": "src/service/session"
+  },
+  "service2": {
+
+  }
+}

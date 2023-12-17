@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body style="margin: 0;">
+</body>
+<script type="text/javascript">
+  (function() {
+    const TOKEN_BUILD_TIMESTAMP = '<%= new Date() %>';
+    console.log('[bootstrap] buildTimestamp', TOKEN_BUILD_TIMESTAMP);
+    <%= require('fs').readFileSync(`./dist/${htmlWebpackPlugin.files.js[0]}`) %>
+  })();
+</script>
+</html>
