@@ -1,9 +1,10 @@
-import { newChain } from 'izy-proxy/index';
+import { newChain } from 'izy-proxy/newChain';
+import jsModuleSystem from 'izy-proxy/izymodtask/wp/index';
 
 const modtask = () => {};
 modtask.bootstrap = ({ serviceComposeJSON, entrypoint }) => {
 	const verbose = {
-		bootstrap: false
+		bootstrap: true
 	};
 	try {
 		const { __chainProcessorConfig } = serviceComposeJSON;
@@ -19,7 +20,8 @@ modtask.bootstrap = ({ serviceComposeJSON, entrypoint }) => {
 			// forceRequireOnLoadFromFile: true,
 			__chainProcessorConfig,
 			// webpack module.id will be ./src/entrypoint.ts
-			callerContextModule: { filename: module.id }
+			callerContextModule: { filename: module.id },
+			jsModuleSystem
 		}, (outcome) => {
 			if (!outcome.success) {
 				return console.log('[bootstrap] error', outcome.reason);
@@ -60,9 +62,6 @@ if ((__izyTypeScriptImportDependencyNull10 as any).__nonExistentProperty) consol
 
 import __izyTypeScriptImportDependencyNull11 from 'izy-proxy/service';
 if ((__izyTypeScriptImportDependencyNull11 as any).__nonExistentProperty) console.log(1);
-
-import __izyTypeScriptImportDependencyNull12 from 'izy-proxy/json';
-if ((__izyTypeScriptImportDependencyNull12 as any).__nonExistentProperty) console.log(1);
 
 import __izyTypeScriptImportDependencyNull13 from 'izy-proxy/lib/globals';
 if ((__izyTypeScriptImportDependencyNull13 as any).__nonExistentProperty) console.log(1);
